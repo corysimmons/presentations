@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=1024">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>OOCSS</title>
+    <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/default.min.css">
+    <link rel="stylesheet" href="css/tomorrow_night_eighties.css">
+    <link href="css/custom.css" rel="stylesheet">
+  </head>
+  <body>
+
+    <div id="impress">
+
+      <div class="step">
+        <h1>Object Oriented CSS</h1>
+        <p>
+          It's not just a buzz term. It's quality CSS.
+        </p>
+      </div>
+
+      <div class="step">
+        <h4>Why should we care?</h4>
+        <ul>
+          <li>It's much easier for teams to work together when they agree upon a standard</li>
+          <li>It's a good standard for CSS</li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <h4>What is it?</h4>
+        <ul>
+          <li>An insane amount of carefully named classes</li>
+          <li>Modular</li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <h4>Who uses it?</h4>
+        <ul>
+          <li>Facebook</li>
+          <li>Yandex (largest search engine in Russia)</li>
+          <li>Harry Roberts (CSSWizardry)</li>
+          <li>Bootstrap (500 contributors)</li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <h4>Stop playing it off like you know better than multi-billion dollar companies and the best CSS developers in the industry</h4>
+      </div>
+
+      <div class="step">
+        <h4>BEM. What does it look like?</h4>
+<pre class="hljs html"><code>&lt;div class=&quot;block block__element block__element--modifier&quot;&gt;
+  That&#039;s a lot of classes!
+&lt;/div&gt;
+</code></pre>
+<pre class="hljs css"><code>.block__element--modifier
+  background: #000
+  color: #fff
+</code></pre>
+        <p class="note">
+          Yes, those are double unscores and double hyphens. You'll learn to like them.
+        </p>
+      </div>
+
+      <div class="step">
+        <h4>What's what?</h4>
+        <ul>
+          <li>
+            Blocks are big "chunks" of your layout.<br>
+            <span class="note">headers, logos, navigation, articles</span>
+          </li>
+          <li>
+            Elements are the pieces that go together to make that block.<br>
+            <span class="note">inputs, buttons, tabs</span>
+          </li>
+          <li>
+            Modifiers are ways to provide alterations to elements.<br>
+            <span class="note">a blue button instead of a red one</span>
+          </li>
+        </ul>
+        <p class="note">
+          <a href="http://bem.info/method/definitions/">bem.info/method/definitions</a>
+        </p>
+      </div>
+
+      <div class="step">
+        <h4>Who wants candy?!</h4>
+        <p>
+          Candy break!
+        </p>
+        <img src="img/free_candy_van.jpg">
+      </div>
+
+      <div class="step">
+        <h4>Crybaby Corner</h4>
+        <p>
+          <i>But I like my DOM selectors!</i>
+        </p>
+      </div>
+
+      <div class="step">
+        <h4>That's fine</h4>
+        <p>
+          On smaller projects there's really no noticeable difference.
+        </p>
+      </div>
+
+      <div class="step">
+        <h4>It's not really fine</h4>
+        <p>
+          On larger code bases where a lot of people are touching the code, you want something more modular. You want to make a framework (complete with a style guide and documentation) complete with small building blocks.
+        </p>
+      </div>
+
+      <div class="step">
+        <h4>A real-world example</h4>
+        <p>
+          (this presentation is much better than mine so let's just switch to it for a bit)
+        </p>
+        <p class="note">
+          <a href="http://www.slideshare.net/maxdesign/css-oocss-and-smacss/21">slideshare.net/maxdesign/css-oocss-and-smacss/21</a>
+        </p>
+      </div>
+
+      <div class="step">
+        <h4>SMACSS</h4>
+        <p>
+          SMACSS offers a pretty nice checklist for revamping your entire CSS. Complete in order:
+        </p>
+        <ol>
+          <li>Base - Global reset</li>
+          <li>Layout - Things that chunk your site into sections. Grid and such.</li>
+          <li>Modules - Smaller parts of your site (calendar, nav, login panel, etc.). In BEM, these would be blocks.</li>
+          <li>State - Hover states, etc.</li>
+          <li>Theme - Specific to child themes your site might provide. Chances are you'll never need to do this.</li>
+          <li>Fonts - Last, and perhaps wrongly considered least, fonts.</li>
+        </ol>
+        <p class="note">
+          <a href="http://smacss.com/book/categorizing">smacss.com/book/categorizing</a>
+        </p>
+      </div>
+
+      <div class="step">
+        <h4>Preprocessor placeholders aren't as amazing as we all hoped</h4>
+        <p>
+          Placeholders will let you assign some preprocessor code (CSS and functions) to a "placeholder". They aren't ran unless you explicitly call them, so you can make all kinds of little building blocks and combine them into actual objects at no cost to your CSS size. In fact, the <code>@extend</code> method saves you compiled (even gzipped) CSS by adding selectors to properties rather than reassigning all the properties of a selector.
+        </p>
+      </div>
+
+      <div class="step">
+        <h4>Placeholders in action</h4>
+<pre class="hljs css"><code>$column
+  float: left
+$half
+  width: 50%
+$quarter
+  width: 25%
+
+.columns-2
+  @extend $column, $half
+.columns-4
+  @extend $column, $quarter
+
+// returns
+.columns-2, .columns-4 {
+  float: left;
+}
+.columns-2 {
+  width: 50%;
+}
+.columns-4 {
+  width: 25%;
+}
+</code></pre>
+        <p>
+          When I didn't really understand the appeal of being able to manipulate design by assigning extra classes, I thought placeholders were the rebuttal vs. OOCSS.
+        </p>
+      </div>
+
+      <div class="step">
+        <h4>Placeholders offer a slight increase in performance on small sites, very little on medium, and no difference from OOCSS for larger sites</h4>
+        <p>
+          Rebute refute.
+        </p>
+        <p class="note">
+          <a href="http://ianfeather.co.uk/object-oriented-sass/">ianfeather.co.uk/object-oriented-sass</a>
+        </p>
+      </div>
+
+      <div class="step">
+        <h4>Or is it?</h4>
+        <p>
+          If there is no noticeable difference, why aren't we abstracting our placeholders down to objects that we can use in the DOM rather than cluttering our pretty markup with 50-bajillion classes?
+        </p>
+<pre class="hljs html"><code>&lt;div class=&quot;columns-2&quot;&gt;
+  I&#039;m composed of 2 smaller pieces, but it could be 20 and you&#039;d never know.
+&lt;/div&gt;
+</code></pre>
+      </div>
+
+      <div class="step">
+        <h4>Because modularity</h4>
+        <p>
+          Modularity is king. Everyone loves putting things together in ways that are tangible. We enjoy taking small pieces of stuff and piecing it together into something personal... You played with Legos when you were a kid. You may be a mechanic when you go home. You play with Legos now that you're an adult.
+        </p>
+        <p>
+          And there's a reason for it. We don't love Legos because of the HD graphics they provide. We love them because we can take little pieces and turn them into something nice fairly quickly and confidently.
+        </p>
+        <p>
+          The only thing that ever slowed us down was having to sift through the pieces to find the one you want. Before every big project I'd sort my Legos into color groups and then sizes.
+        </p>
+      </div>
+
+      <div class="step">
+        <h4>That's what worked for me</h4>
+        <p>
+          What will work for us?
+        </p>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+    <script src="bower_components/jquery/jquery.min.js"></script>
+    <script src="bower_components/impress.js/js/impress.js"></script>
+    <script>
+      $(function() {
+        var y = 2000;
+        $('.step').each(function(i) {
+          $(this).attr('data-y', y);
+          y += 2000;
+        });
+        impress().init();
+      });
+    </script>
+    <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+  </body>
+</html>

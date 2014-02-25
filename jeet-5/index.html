@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=1024">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Jeet 5</title>
+    <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/default.min.css">
+    <link rel="stylesheet" href="css/tomorrow_night_eighties.css">
+    <link href="css/custom.css" rel="stylesheet">
+  </head>
+  <body>
+
+    <div id="impress">
+
+      <div class="step">
+        <h1>Jeet</h1>
+        <p>
+          Responsive grids on crack
+        </p>
+      </div>
+
+      <div class="step">
+        <h4>What are grids?</h4>
+        <p>
+          Grids are ways to organize content to make it easier for a user to quickly scan a document for important blocks. This can be pictures, text, anything.
+        </p>
+        <ul>
+          <li><a href="https://www.google.com/#q=kitten&safe=active" target="_blank">Google Images</a> (horizontal grid)</li>
+          <li><a href="http://pinterest.com" target="_blank">Pinterest</a> (vertical grid)</li>
+          <li><a href="http://dribbble.com" target="_blank">Dribbble</a> (both)</li>
+          <li><a href="http://www.subtraction.com/pics/0703/grids_are_good.pdf" target="_blank">Grids Are Good</a> (further reading)</li>
+          <li><a href="http://www.goldennumber.net/" target="_blank">The Golden Ratio</a> (mind blown)</li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <img src="img/example_grid.jpg">
+      </div>
+
+      <div class="step">
+        <h4>A brief history of grid systems and the web</h4>
+        <ul>
+          <li>Grid systems were mainly used in print design</li>
+          <li><a href="http://www.markboulton.co.uk/journal/five-simple-steps-to-designing-grid-systems-part-1" target="_blank">Mark Boulton</a> &amp; some other smart people brought grids to the common web-designers' attention</li>
+          <li>Grids are now everywhere on the web (Google "grid frameworks" for 7,760,000 results)</li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <h4>If there are 7 million grid frameworks* out there, why build another?</h4>
+        <p class="note">
+          * this is a fairly accurate respresentation of the number of grid frameworks out there today
+        </p>
+      </div>
+
+      <div class="step">
+        <h1>Growing Pains</h1>
+        <p>
+          Jeet didn't start off as just a grid system.
+        </p>
+      </div>
+
+      <div class="step">
+        <h4>Jeet 1</h4>
+        <p>
+          It was originally just a set of my own preferred tools for web-design:
+        </p>
+        <ul>
+          <li><a href="http://h5bp.com" target="_blank">HTML5 Boilerplate</a></li>
+          <li><a href="http://semantic.gs" target="_blank">Semantic Grid System</a></li>
+          <li>A bunch of polyfills conditionally loaded to old IE's</li>
+        </ul>
+        <p>
+          It was intended to be lightweight, use modular pieces, and care about older browser support - whereas Bootstrap was fat, didn't seem to care about older browsers, and everything built with it's UI kit looked very cookie-cutter to me.
+        </p>
+        <ul>
+          <li><a href="http://webdesign.tutsplus.com/articles/working-with-jeet-an-alternative-responsive-framework--webdesign-11295" target="_blank">TutsPlus Screencast</a></li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <h4>Jeet 2</h4>
+        <p>
+          A few months after making Jeet 1, I thought it'd be nice to pass "fractions" (see: <code>1, 3</code>) to Semantic Grid System's <code>column()</code> function. The math behind it was quite simple (<code>(x/y) * 100 = % of container</code>) but it made interacting with columns a very flexible experience. Grids became fun and every grid could be wholly unique.
+        </p>
+        <p>
+          At this time, 2 great developers came onto the Jeet project: <a href="https://twitter.com/ozamorowski" target="_blank">Oskar Zamorowski</a> (who ported Jeet to SCSS) and <a href="http://gmanricks.com/" target="_blank">Gabriel Manricks</a> (who built a really cool NPM watcher for Jeet).
+        </p>
+        <p>
+          Things were really great at this time, but one thing eluded me... the mythic <b>Consistently Sized, Responsive, Nested, Gutter</b>.
+        </p>
+        <ul>
+          <li><a href="http://webdesign.tutsplus.com/articles/jeet-framework-whats-new--webdesign-12300" target="_blank">TutsPlus Screencast</a></li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <h4>Side Quest: The Legend of The Gutter</h4>
+        <p>
+          The problem with responsive grid systems is a 2% gutter of a 1000px container is going to be different than a 2% gutter of a 500px container. For a long time, even the biggest frameworks out there didn't address this problem. <a href="http://codepen.io/corysimmons/full/avxsE" target="_blank">Bootstrap 2</a> did it. In fact, every grid system at the time except for <a href="http://shelvesgrid.org/" target="_blank">Shelves Grid</a> and <a href="http://neat.bourbon.io/" target="_blank">Bourbon Neat</a>* did fluid grids this way.
+        </p>
+        <p>
+          Why is this a big deal? Well, it breaks the entire purpose of using a grid system.
+        </p>
+        <p>
+          Things shouldn't be 10-20px "offset" just because your grid system can't do math. Intentionally breaking the grid is one thing, but bad math isn't intentional.
+        </p>
+        <p class="note">
+          * Shelves and Neat had consistently sized nested gutters, but the trade-off was you had to set a fixed number of columns. Not a huge deal unless you're looking for flexibility.
+        </p>
+      </div>
+
+      <div class="step">
+        <h4>Obsessed with Grids</h4>
+        <p>
+          I became absolutely obsessed with this problem... I fought with it for months. I worked on it with some of the best programmers in the world. I lost clients because of it. I stopped paying my bills. I stopped sleeping, or talking to my friends or family. I met weird, drugged-out, mathematicians at biker bars and talked to them about the nature of the universe and how it's all related to grid theory.
+        </p>
+        <p>
+          The formula was so close, but every time I thought I had figured it out, I'd try some new combination of fractions and the entire thing would explode in my face.
+        </p>
+        <p>
+          I could have happily worked on that problem for the rest of my life, but I got an eviction notice.
+        </p>
+        <p>
+          I fell into a deep depression. For quite a few weeks I didn't touch Jeet. I didn't want to touch it. It ruined my life.
+        </p>
+      </div>
+
+      <div class="step">
+        <h4>Jeet 3</h4>
+        <p>
+          After weeks of Jeet laying dormant, I awoke one morning to find a single e-mail in my inbox from Github. Someone had submitted a Pull Request to Jeet. I thought to myself, "Neat, someone probably fixed some bug that was affecting their project..."
+        </p>
+        <p>
+          The next 5 minutes were, simply put, better than any sex I'd ever had.
+        </p>
+        <p>
+          <a href="http://monkeez.com/" target="_blank">Mitchell Coote</a>, an animator for video games such as L.A. Noire &amp; Saints Row IV, had solved the gutter problem.
+        </p>
+        <p>
+          I finished work with current clients, didn't pursue new work, and made contact with Mitchell. Over the next few weeks we worked out all the kinks with the grid solution. I made a responsive typography system to go with it. Then, Gabriel and I worked on an even better NPM package. We were all too excited to worry about maintaining Sass support and Oskar got busy, so we dropped Sass and launched Jeet 3.
+        </p>
+      </div>
+
+      <div class="step">
+        <h4>Jeet 4 and 5</h4>
+        <p>
+          After starting at MojoTech I worked on making Jeet more modular with fellow Mojo, Sam Saccone, and one of Carrot Creative's best engineers, Jeff Escalante.
+        </p>
+        <p>
+          I ported the HTML5 Boilerplate with conditionally loaded polyfills to <a href="https://github.com/corysimmons/boy" target="_blank">Boy</a>, the responsive typography to <a href="https://github.com/corysimmons/typographic" target="_blank">Typographic</a>, and plan on cleaning up/porting the rest very soon.
+        </p>
+        <p>
+          This left the strongest part of Jeet - the grid system - intact, and very mobile. It can be put into any build process or pipeline that accepts any Stylus plugin: Node, Rails, static, almost anything.
+        </p>
+      </div>
+
+      <div class="step">
+        <h4>How is Jeet's grid different than other modern grids?</h4>
+        <p>
+          The big frameworks noticed their grid flaws. They couldn't ignore that nesting columns broke gutter width so they came up with a solution that involves using negative margins and padding. It solves that problem brilliantly, but since <code>padding</code> is not a "real" gutter anytime you want to give an element it's own background color (or border, or shadow, etc.) and have a transparent gutter, you have to nest an element.
+        </p>
+        <p>
+          This is an insanely common use-case so you end up with elements nested inside of almost every single element - just to have a transparent gutter. You're almost doubling the amount of DOM elements you're using just to do basic styling.
+        </p>
+        <ul>
+          <li><a href="http://codepen.io/corysimmons/pen/gsHmi" target="_blank">Bootstrap 3 Example</a></li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <h4>Other badass grid systems</h4>
+        <p>
+          These are the only two other grid systems I could find that I thought were as advanced as Jeet's. I love grids so I respect the hell out of these teams and encourage all of you to independently investigate their systems.
+        </p>
+        <ul>
+          <li>
+            <a href="http://singularity.gs/" target="_blank">Singularity</a>, by <a href="http://scottkellum.com/" target="_blank">Scott Kellum</a> of Team Sass/Vox Media, is really cool. It takes a slightly different approach to defining columns and the syntax is much more verbose than Jeet's.<br>
+            Example Syntax: <code>$grids: add-grid(1 3 5 7 9 at $break3);</code>
+          </li>
+          <li>
+            <a href="http://susy.oddbird.net/" target="_blank">Susy</a>, by <a href="http://oddbird.net/" target="_blank">Oddbird</a>, just got a grid overhaul. Again, it takes an even different approach, and it's syntax isn't terribly clear.<br>
+            Example Syntax: <code>$large: layout(80em 24 1/4 inside);</code>
+          </li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <h4>Jeet's Syntax</h4>
+        <h6>Basic</h6>
+        <p>
+<pre class="hljs css"><code>.my-block
+  col(1/4)
+</code></pre>
+        </p>
+        <h6>Advanced</h6>
+        <p>
+<pre class="hljs css"><code>.my-super-block
+  col(1/4 1/2, cycle: 4)
+</code></pre>
+        </p>
+      </div>
+
+      <div class="step">
+        <h4>Installation/Usage</h4>
+        <ul>
+          <li>Install <a href="http://nodejs.org/" target="_blank">NodeJS</a></li>
+          <li><code>npm install -g jeet</code></li>
+          <li><code>cd ~/Projects</code></li>
+          <li>Put <code>@import 'jeet'</code> at the top of <code>~/Projects/foo.styl</code></li>
+          <li><code>stylus -u jeet -w css/foo.styl</code></li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <h4>Let's make a website from scratch</h4>
+        <p>
+          How about a gallery of kitten pictures?
+        </p>
+      </div>
+
+      <div class="step">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="http://jeet.gs/" target="_blank">http://jeet.gs</a></li>
+          <li><a href="http://bit.ly/jeetfork" target="_blank">http://bit.ly/jeetfork</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <script src="bower_components/jquery/jquery.min.js"></script>
+    <script src="bower_components/impress.js/js/impress.js"></script>
+    <script>
+      $(function() {
+        var y = 2000;
+        $('.step').each(function(i) {
+          $(this).attr('data-y', y);
+          y += 2000;
+        });
+        impress().init();
+      });
+    </script>
+    <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+  </body>
+</html>

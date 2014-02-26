@@ -472,6 +472,15 @@ pre code {
   font-size: 15px;
   line-height: 22.5px;
 }
+.white_bg {
+  background: #fff;
+  text-align: center;
+  color: #272727;
+}
+.white_bg h1 {
+  color: #192f42;
+  margin-left: 100px;
+}
 .css,
 .html {
   color: #cc4c2b;

@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=1024">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Frontend Basics</title>
+    <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/default.min.css">
+    <link rel="stylesheet" href="css/tomorrow_night_eighties.css">
+    <link href="css/custom.css" rel="stylesheet">
+  </head>
+  <body>
+
+    <div id="impress">
+
+      <div class="step">
+        <h1>Frontend Basics</h1>
+        <p>
+          Tips and tools to make your frontend cleaner and stronger.
+        </p>
+      </div>
+
+      <div class="step">
+        <h4>Why should we care?</h4>
+        <ul>
+          <li>It's easy to do. You literally just have to care - just a tiny, little, bit.</li>
+          <li>Less code makes for faster development</li>
+          <li>Polyfills make browser support easy</li>
+          <li>Boilerplates standardize your workflow and make everything faster</li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <h4>Mixin frameworks kinda suck</h4>
+        <p>
+          Things like Compass and Neat have some cool tools with them (sprite sheet generation, data URI generation, etc.) but 99% of the time we don't use these frameworks for that functionality. We primarily use them to apply vendor prefixes and use silly mixins that obfuscate our code. For example, the "size" mixin that simply sets width and height at the cost of obfuscating the code.
+        </p>
+      </div>
+
+      <div class="step">
+        <h4>Autoprefixer</h4>
+        <p>
+          Autoprefixer is one of my favorite tools. It intelligently pulls only the prefixes you need from the CanIUse database rather than applying every prefix (even ones that don't need it) like most frameworks do.
+        </p>
+        <p>
+          Your code is CSS spec which means it's future-proof and team-proof. By team-proof I mean if everyone specializes in a different framework then there's a lot of context changing going on for every project and sometimes within the same project. It's also not tied to a particular preprocessor.
+        </p>
+        <p>
+          If you're interested in writing sweet, sweet, CSS spec, then Myth takes Autoprefixer's strategy a step further and tries to cover everything, not just vendor prefixes.
+        </p>
+      </div>
+
+      <div class="step">
+        <h4>CSS frameworks are amazing</h4>
+        <p>
+          Frameworks that create reusable classes and standardize everything. Anyone can grab a copy of Bootstrap and know exactly what to do.
+        </p>
+        <p>
+          It wouldn't be a bad idea to standardize our workflow based around an existing framework that we simply retheme.
+        </p>
+      </div>
+
+      <div class="step">
+        <h4>Use these frameworks right</h4>
+        <p>
+          Markup is important with frameworks. Pay attention. I can't count the number of times I've seen Bootstrap grid classes misused.
+        </p>
+      </div>
+
+      <div class="step">
+        <h4>Creating our own framework</h4>
+        <p>
+          We make a lot of unique sites and apps. We use a lot of interesting tools. We should build our own framework based around <b>our style</b>.
+        </p>
+      </div>
+
+      <div class="step">
+        <h4>Parts to a boilerplate</h4>
+        <ul>
+          <li>Reset and clearfix</li>
+          <li>HTML5 Boilerplate</li>
+          <li>Conditionally loaded polyfills</li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <h4>Great tools for great sites</h4>
+        <ul>
+          <li>Autoprefixer</li>
+          <li>Retina mixin</li>
+          <li>Picturefill</li>
+          <li>Grid system</li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <h4>Develop faster</h4>
+        <ul>
+          <li>Preprocessors</li>
+          <li>LiveReload</li>
+          <li>Chrome Workspaces</li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <h4>Things to consider</h4>
+        <ul>
+          <li>Browser support - IE8 is the most popular version of IE. Ignore that market at your own peril.</li>
+          <li>Use JS to style things that are sillily hard with just CSS. jQuery 1.x.x supports IE9 and below pretty seamlessly. Things like cross-browser dynamic-height sticky footers, and vertical centering, are made trivial with a bit of JS</li>
+          <li>Test responsively <i>as</i> you develop</li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <h4>How to test in IE</h4>
+        <p>
+          BrowserStack is slow. VMs - VirtualBox and ievms (make sure you have a lot of space). You can navigate to localhost with http://10.0.2.2
+        </p>
+        <p>
+          Again, test as you develop and it's much easier. Going back and fixing a site that is fundamentally broken is always painful, but fixing a small issue when it pops up is easy. I suggest you just have a couple of these VMs open at all times.
+        </p>
+      </div>
+
+      <div class="step">
+        <h4>Talk it out</h4>
+        <p>
+          Frontend code is important. It turns into a gross mess of spaghetti if you let it and if things aren't used correctly in the first place then it's really hard to fix it. From time to time, harass other frontend devs just so they can put eyes on it. Don't wait until you get to the PR stage to get shot down and you'll all develop a love for clean frontend code.
+        </p>
+      </div>
+
+      <div class="step">
+        <h4>Be excellent to each other</h4>
+        <p>
+          Adios guys. It's been fun.
+        </p>
+      </div>
+
+
+    </div>
+
+    <script src="bower_components/jquery/jquery.min.js"></script>
+    <script src="bower_components/impress.js/js/impress.js"></script>
+    <script>
+      $(function() {
+        var y = 2000;
+        $('.step').each(function(i) {
+          $(this).attr('data-y', y);
+          y += 2000;
+        });
+        impress().init();
+      });
+    </script>
+    <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+  </body>
+</html>

@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=1024">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Functional Attributes</title>
+    <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/default.min.css">
+    <link rel="stylesheet" href="../common/css/tomorrow_night_eighties.css">
+    <link href="../common/css/custom.css" rel="stylesheet">
+  </head>
+  <body>
+
+    <div id="impress">
+
+      <div class="step">
+        <h1>Functional Attributes</h1>
+        <p>
+          The possible future of the CSS <code>attr</code> rule and how to implement it today with JavaScript.
+        </p>
+        <p>
+          Cory Simmons - <a href="https://twitter.com/ccccory">@ccccory</a>
+        </p>
+      </div>
+
+      <div class="step">
+        <h4>Use cases</h4>
+        <ul>
+          <li>Grid systems in HTML</li>
+          <li>UI kit elements in HTML</li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <h4>How?</h4>
+        <ul>
+          <li>Set an attribute in HTML</li>
+          <li>Iterate over elements that have that attribute</li>
+          <li>Perform calculations with JavaScript</li>
+          <li>Set CSS with JavaScript</li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <h4>Why JavaScript?</h4>
+        <p>
+          The <code>attr</code> rule doesn't support a lot of stuff... As in... it only supports setting <code>content</code> so we can't set things like <code>width</code> or <code>background-color</code>. Pretty much useless for our purposes right now.
+        </p>
+        <p>
+          I'm hopeful for the future of this potentially amazing addition to CSS.
+        </p>
+        <ul>
+          <li>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/attr">https://developer.mozilla.org/en-US/docs/Web/CSS/attr</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <h4>Wouldn't this be slow?</h4>
+        <ul>
+          <li>Not really - in my personal experience</li>
+          <li>A few years from now you can remove the JS and it will <b>Just Work</b>&trade; (well, you'll have to port to CSS)</li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <h4>Workshops work right?</h4>
+        <p>
+          So as a thank you to the amazing CouchSurfer who is letting me crash on his couch, I thought we could redevelop parts of his site using this technology.
+        </p>
+        <ul>
+          <li>
+            <a href="http://JoeyPonce.com">JoeyPonce.com</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <h4>Take aways</h4>
+        <ul>
+          <li>When CSS supports this, you can port your work to CSS and just remove JS so don't worry about performance - especially on smaller sites.</li>
+          <li>JavaScript is hella powerful - you're only limited by your imagination.</li>
+          <li>This stuff is really fun. It opens up a world of possibilities.</li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <h4>Thanks!</h4>
+        <ul>
+          <li>For the love of God, follow me on Twitter - <a href="https://twitter.com/ccccory">@ccccory</a> (4 c's)</li>
+          <li>Check out my grid system framework - <a href="http://jeet.gs">Jeet.gs</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <script src="../common/bower_components/jquery/jquery.min.js"></script>
+    <script src="../common/bower_components/impress.js/js/impress.js"></script>
+    <script>
+      $(function() {
+        var y = 2000;
+        $('.step').each(function(i) {
+          $(this).attr('data-y', y);
+          y += 2000;
+        });
+        impress().init();
+      });
+    </script>
+    <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="../common/js/custom.js"></script>
+
+  </body>
+</html>

@@ -1,12 +1,17 @@
 @import '../bower_components/google-code-prettify/src/prettify.css'
 @import '_settings'
-@import '../../node_modules/jeet/lib/index'
 
 html
   overflow: hidden
+  font-family: sans-serif
+  font-size: 1.5em
+
+a
+  color: lighten(blue, 40%)
+  text-decoration: none
 
 .step
-  width: 1400px
+  width: 1200px
   opacity: 1
   padding: 30px 50px
   color: #fff
@@ -15,6 +20,8 @@ html
 ul, ol
   padding-left: 1em
   list-style: square
+  li
+    margin-bottom: .25em
 
 .note
   font-size: ms(7)

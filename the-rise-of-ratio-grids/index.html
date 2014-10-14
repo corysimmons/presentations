@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=1024">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>The Rise of Ratio Grids</title>
+    <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/default.min.css">
+    <link rel="stylesheet" href="../common/css/tomorrow_night_eighties.css">
+    <link href="../common/css/custom.css" rel="stylesheet">
+  </head>
+  <body>
+
+    <div id="impress">
+
+      <div class="step">
+        <h1>The Rise of Ratio Grid Systems</h1>
+        <p>
+          A farewell to traditional CSS grid systems
+        </p>
+        <p>
+          Cory Simmons - <a href="https://twitter.com/ccccory">@ccccory</a>
+        </p>
+      </div>
+
+      <div class="step">
+        <h2>So what is a traditional CSS grid?</h2>
+        <p>
+          Any grid distributed as pure CSS.
+        </p>
+      </div>
+
+      <div class="step">
+        <h2>The Big Ones</h2>
+        <ul>
+          <li>Bootstrap</li>
+          <li>Foundation</li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <h2>Pros and Cons of pure CSS grids?</h2>
+        <h4>Pros</h4>
+        <ul>
+          <li>Target a much wider audience</li>
+          <li>Easy to package for various tools like Rails</li>
+        </ul>
+        <h4>Cons</h4>
+        <ul>
+          <li>Almost everyone uses a preprocessor nowadays</li>
+          <li>Not as powerful</li>
+          <li>More markup</li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <h2>CSS grids suck</h2>
+        <ul>
+          <li>More markup</li>
+          <li>More classes, god the classes *</li>
+        </ul>
+        <p>
+          * I know what OOCSS is. It still looks like markup spaghetti and is overkill for most sites.
+        </p>
+      </div>
+
+      <div class="step">
+        <h2>An actual example straight from their docs</h2>
+        <p>
+          Bootstrap<br>
+          <code>&lt;div class=&quot;col-sm-6 col-md-5 col-md-offset-2 col-lg-6 col-lg-offset-0&quot;&gt;</code>
+        </p>
+        <p>
+          Foundation<br>
+          <code>&lt;div class=&quot;small-5 small-push-7 medium-7 medium-push-5 columns&quot;&gt;</code>
+        </p>
+      </div>
+
+      <div class="step">
+        <h2>"But Bootstrap and Foundation offer semantic mixins for their grids"</h2>
+        <p>
+          After some editing and copying &amp; pasting you can use Bootstrap's mixins for your grids, but they're still not very flexible (you have to make a new mixin every time you want to change the number of grid columns).
+        </p>
+        <p>
+          Indeed Foundation offers a great little Sass-based grid toolkit that mimics Bourbon Neat. It's not as flexible as some of the ratio grids out there, but kudos to the Foundation team.
+        </p>
+        <ul>
+          <li>
+            <a href="http://getbootstrap.com/css/#grid-less" target="_blank">Bootstrap LESS Grid</a>
+          </li>
+          <li>
+            <a href="http://foundation.zurb.com/docs/components/grid.html">Foundation Sass Grid</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <h2>Up your grid game</h2>
+        <p>
+          Grids are the most important part of any UI toolkit. They offer a way to lay out your entire website in a neat way and we use them on every single site we ever build.
+        </p>
+        <p>
+          If any part of our workflow deserves special attention, it's grids.
+        </p>
+      </div>
+
+      <div class="step">
+        <h2>Truly flexibility</h2>
+        <p>
+          What if we could define our grids on the fly? What if we didn't need <code>.row</code> classes anymore?
+        </p>
+        <p>
+          What would our markup look like?
+        </p>
+      </div>
+
+      <div class="step">
+        <h2>A ratio grid called Jeet</h2>
+        <p>
+          Jeet is a grid system that works with Sass or Stylus.
+        </p>
+      </div>
+
+      <div class="step">
+        <h3>Traditional Bootstrap Markup</h3>
+<pre class="hljs html"><code>&#x3C;div class=&#x22;row gallery&#x22;&#x3E;
+  &#x3C;div class=&#x22;col-xs-6 col-md-4&#x22;&#x3E;item&#x3C;/div&#x3E;
+  &#x3C;div class=&#x22;col-xs-6 col-md-4&#x22;&#x3E;item&#x3C;/div&#x3E;
+&#x3C;/div&#x3E;
+</code></pre>
+        <h3>Jeet Markup</h3>
+<pre class="hljs html"><code>&#x3C;section class=&#x22;gallery&#x22;&#x3E;
+  &#x3C;div&#x3E;item&#x3C;/div&#x3E;
+  &#x3C;div&#x3E;item&#x3C;/div&#x3E;
+&#x3C;/section&#x3E;
+</code></pre>
+      </div>
+
+      <div class="step">
+        <h2>Jeet Style</h2>
+<pre class="hljs css"><code>.gallery
+  cf()
+  > div
+    col(1/2)
+</code></pre>
+      </div>
+
+      <div class="step">
+        <h2>Flexibility</h2>
+        <p>
+          Let's say we want our grid to be a row of 3 items. It's as easy as changing one value.
+        </p>
+<pre class="hljs css"><code>.gallery
+  cf()
+  > div
+    col(1/3)
+</code></pre>
+        <p>
+          In traditional CSS grids we'd have to go back over every instance of that class in our markup and replace it.
+        </p>
+      </div>
+
+      <div class="step">
+        <h2>That's not all!</h2>
+        <p>
+          Let's say we have a 3 column grid at the top of our page for something like a masthead, and somewhere below that we need a 5 column grid for something like services.
+        </p>
+        <div style="text-align: center">
+          <img src="img/3-5-grid.jpg" height="200px">
+        </div>
+        <p>
+          There's no way to do this with traditional CSS grids without upping the original amount of columns to 15 - which will screw up all your existing markup.
+        </p>
+      </div>
+
+      <div class="step">
+        <h2>With a ratio grid...</h2>
+<pre class="hljs css"><code>.masthead
+  cf()
+  > div
+    col(1/3)
+
+.services
+  cf()
+  > div
+    col(1/5)
+</code></pre>
+      </div>
+
+      <div class="step">
+        <h2>But wait, there's more! Padding-based grids are icky</h2>
+        <p>
+          Bootstrap and Foundation use padding-based columns. This is a grid solution where you can drop in as many elements as you'd like and they adhere to the grid beautifully. The downside is, you don't have real empty space between elements. It's all padding. This means if you want to change the background for elements in your grid, you need to create a new element inside every single column you'd like to have it's own background color - you can't just change the column's background color.
+        </p>
+        <p>
+          Foundation tries to cheat with their "Block Grid", but if you change the actual column elements (the <code>&lt;li&gt;</code>'s) it still paints the entire column's background so you still need to nest an element inside of it.
+        </p>
+        <ul>
+          <li>
+            <a href="http://foundation.zurb.com/docs/components/block_grid.html" target="_blank">http://foundation.zurb.com/docs/components/block_grid.html</a>
+          </li>
+          <li>
+            <a href="http://imgur.com/a/OWyOQ" target="_blank">bit.ly/padding-grids</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <h2>In their defense</h2>
+        <p>
+          These <b>are</b> the best grids you can make with CSS only *, and they <b>are</b> trying to market their frameworks to the biggest possible audience. So it makes sense for padding-based CSS only grids to exist.
+        </p>
+        <p>
+          * <i>cough</i> Flexbox <i>cough</i>
+        </p>
+      </div>
+
+      <div class="step">
+        <h2>We're not babies</h2>
+        <p>
+          CSS-only grids will always exist to cater to people who don't use preprocessors, but maybe we should take our grid-destiny in our own hands and simply swap out their grids for preprocessor based ones.
+        </p>
+      </div>
+
+      <div class="step">
+        <h2>The Ratio Grids!</h2>
+        <ul>
+          <li>
+            <a href="http://susy.oddbird.net/" target="_blank">Susy</a> (powerful)
+          </li>
+          <li>
+            <a href="http://singularity.gs/" target="_blank">Singularity</a> (powerful)
+          </li>
+          <li>
+            <a href="http://neat.bourbon.io/" target="_blank">Bourbon Neat</a> (simple)
+          </li>
+          <li>
+            <a href="http://jeet.gs" target="_blank">Jeet</a> (simple)
+          </li>
+          <li>
+            <a href="http://flint.gs/" target="_blank">Flint</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <h2>Replacing Bootstrap's grid with a Ratio Grid</h2>
+        <ol>
+          <li>Stop using Bootstrap grid classes</li>
+          <li>Use a ratio grid for all your column needs</li>
+          <li>Some things won't work or need to be set to <code>width: 100%</code></li>
+        </ol>
+      </div>
+
+      <div class="step">
+        <h2>Example</h2>
+        <ul>
+          <li>
+            <a href="https://github.com/corysimmons/bootjeet" target="_blank">https://github.com/corysimmons/bootjeet</a>
+          </li>
+        </ul>
+        <p>
+          Adios billion classes and extra elements in markup. Hola real columns.
+        </p>
+      </div>
+
+      <div class="step">
+        <h2>In conclusion</h2>
+        <ul>
+          <li>CSS only grids are good for people who use CSS only</li>
+          <li>Padding grids require extra markup</li>
+          <li>You can replace your grid system today</li>
+          <li>Less characters = faster development</li>
+        </ul>
+        <h4>Sidenote</h4>
+        <p>
+          Literally every single developer I've ever worked with on a project has used Bootstrap and has screwed up the grid markup.
+        </p>
+      </div>
+
+      <div class="step">
+        <h1>I'm Cory Simmons</h1>
+        <p>
+          I work for TutsPlus making tutorials and courses. I've written for Packt Publishing and CSS Tricks. I present at conferences like this one. I worked on a site that won a Site of the Day Awwward. I made and maintain the most popular Stylus library with over 1500 GitHub Stars - Jeet.
+        </p>
+        <p>
+          I know a tiny bit of backend dev but am comfortable working on big teams.
+        </p>
+        <p>
+          I feel like I have skillz but <b>I live in a box and eat beans out of a shoe.</b>
+        </p>
+        <p>
+          Please hire me to work remotely full-time making sure all your sites and apps look fantastic.
+        </p>
+        <p>
+          <a href="https://twitter.com/ccccory" target="_blank">@ccccory</a> (4 c's)
+        </p>
+      </div>
+
+    </div>
+
+    <script src="../common/bower_components/jquery/jquery.min.js"></script>
+    <script src="../common/bower_components/impress.js/js/impress.js"></script>
+    <script>
+      $(function() {
+        var y = 2000;
+        $('.step').each(function(i) {
+          $(this).attr('data-y', y);
+          y += 2000;
+        });
+        impress().init();
+      });
+    </script>
+    <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="../common/js/custom.js"></script>
+
+  </body>
+</html>

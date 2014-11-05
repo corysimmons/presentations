@@ -24,31 +24,93 @@
       </div>
 
       <div class="step">
+        <h1>Hi, my name is Cory Simmons</h1>
+        <ul>
+          <li>
+            Written for CSS Tricks
+          </li>
+          <li>
+            Have a book with Packt Publishing on responsive web design
+          </li>
+          <li>
+            Have a popular little GitHub project called Jeet
+          </li>
+          <li>
+            Have won a Site of the Day Awwward
+          </li>
+          <li>
+            Currently author for TutsPlus
+          </li>
+        </ul>
+      </div>
+
+      <div class="step">
         <h2>Why I got into ratio grids</h2>
         <p>
-          My name is Cory. I've been a freelance web-designer for several years. In that time I had a client for a few years that was... "picky" and indecisive.
+          I've been a freelance web-designer for several years. In that time I had a client for a few years that was... "picky" and indecisive.
         </p>
         <p>
           He'd want a website with 3 columns, then he'd want to add another column, then another, then remove one, then add 3 more, then...... you get the picture.
         </p>
         <p>
-          I needed a way to quickly appease him. I needed a more powerful grid system...
+          I needed a way to quickly appease him. I needed a more powerful grid system... traditional CSS grids weren't cutting it.
         </p>
       </div>
 
       <div class="step">
-        <h2>But first, what is a traditional CSS grid?</h2>
+        <h2>I put a plan into motion</h2>
+        <p>
+          I wanted a grid system where I could set my grid settings on the fly. For instance if I wanted a grid that was broken up into thirds in one area and sevenths in a section slightly further down the page, I could do that.
+        </p>
+        <p>
+          Something in my bones told me that preprocessors could totally do this but I was too stupid to figure out the formula.
+        </p>
+        <p>
+          I obsessed over this.
+        </p>
+        <p>
+          I stopped communicating with people. I stopped working specifically to concentrate on this. I fell behind on all my bills and almost ended up homeless.
+        </p>
+        <p>
+          No joke. Math is weird.
+        </p>
+      </div>
+
+      <div class="step">
+        <h2>Good morning</h2>
+        <p>
+          I finally gave up on it and went back to traditional CSS grids. I went to sleep so depressed.
+        </p>
+        <p>
+          The very next morning I woke up to find this huge Pull Request from a guy named Mitchell Coote (L.A. Noire, Saints Row animator, awesome guy) who had solved the dilemma by borrowing bits and pieces from other grid projects.
+        </p>
+      </div>
+
+      <div class="step">
+        <h2>Equipped</h2>
+        <p>
+          Now that I had a badass grid system I was able to complete work in a fraction of the time, catch up on bills, and spend more time with family and friends.
+        </p>
+      </div>
+
+      <div class="step">
+        <h2>But enough about my personal experience. Let's bash things!</h2>
+      </div>
+
+      <div class="step">
+        <h2>What is a traditional CSS grid?</h2>
         <p>
           Any grid distributed as pure CSS.
         </p>
       </div>
 
       <div class="step">
-        <h2>The Big Ones</h2>
+        <h2>Examples</h2>
         <ul>
           <li>960.gs</li>
           <li>Bootstrap</li>
           <li>Foundation</li>
+          <li>Etc to infinity</li>
         </ul>
       </div>
 
@@ -64,19 +126,19 @@
           <li>Almost everyone uses a preprocessor nowadays</li>
           <li>Not as powerful</li>
           <li>More markup</li>
-          <li>It's not that hard to use a preprocessor with tools like Rails, in fact, it's built in</li>
+          <li>It's not that hard to use a preprocessor with tools like Rails, in fact, it's built into most frameworks</li>
         </ul>
       </div>
 
       <div class="step">
-        <h2>CSS grids suck</h2>
+        <h2>Why CSS grids suck</h2>
         <ul>
           <li>More markup in the form of <code>&lt;div class="row"&gt;</code>'s</li>
-          <li>Big CSS filesizes</li>
-          <li>More classes, god the classes *</li>
+          <li>Big CSS filesizes (<a href="https://github.com/twbs/bootstrap/blob/master/dist/css/bootstrap.css#L1390" target="_blank">Example</a>)</li>
+          <li>More classes, my god the classes *</li>
         </ul>
         <p>
-          * I know what OOCSS is. It still looks like markup spaghetti and is overkill for most sites. Not to mention, you don't have to forfeit OOCSS for preprocessor solutions
+          * I know what OOCSS is. It still looks like markup spaghetti and is overkill for most sites. Not to mention, you don't have to forfeit OOCSS for preprocessor solutions.
         </p>
       </div>
 
@@ -100,6 +162,9 @@
         <p>
           Indeed Foundation offers a great little Sass-based grid toolkit that mimics Bourbon Neat. It's not as flexible as some of the ratio grids out there, but kudos to the Foundation team.
         </p>
+        <p>
+          Also, use these. If you're already using them and everything is good for you, then continuing using them!
+        </p>
         <ul>
           <li>
             <a href="http://getbootstrap.com/css/#grid-less" target="_blank">Bootstrap LESS Grid</a>
@@ -111,7 +176,7 @@
       </div>
 
       <div class="step">
-        <h2>Up your grid game</h2>
+        <h2>Maybe it's time to up your grid game</h2>
         <p>
           Grids are the most important part of any UI toolkit. They offer a way to lay out your entire website in a neat way and we use them on every single site we ever build.
         </p>
@@ -124,12 +189,19 @@
       </div>
 
       <div class="step">
-        <h2>Truly flexibility</h2>
+        <h2>True flexibility</h2>
         <p>
-          What if we could define our grids on the fly? What if we didn't need <code>.row</code> classes anymore?
+          What if we could define our grids on the fly? What if we didn't need no stinkin' <code>.row</code> classes anymore?
         </p>
         <p>
           What would our markup look like?
+        </p>
+      </div>
+
+      <div class="step">
+        <h3>Shame-filled self-plug</h3>
+        <p>
+          There are amazing grid systems out there. I'm only using "my grid" as an example because I'm so familiar with it.
         </p>
       </div>
 
@@ -142,10 +214,12 @@
 
       <div class="step">
         <h3>Traditional Bootstrap Markup</h3>
-<pre class="hljs html"><code>&#x3C;div class=&#x22;row gallery&#x22;&#x3E;
-  &#x3C;div class=&#x22;col-xs-6 col-md-4&#x22;&#x3E;item&#x3C;/div&#x3E;
-  &#x3C;div class=&#x22;col-xs-6 col-md-4&#x22;&#x3E;item&#x3C;/div&#x3E;
-&#x3C;/div&#x3E;
+<pre class="hljs html"><code>&lt;div class=&quot;container-fluid gallery&quot;&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-xs-6 col-md-4&quot;&gt;item&lt;/div&gt;
+    &lt;div class=&quot;col-xs-6 col-md-4&quot;&gt;item&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
 </code></pre>
         <h3>Jeet Markup</h3>
 <pre class="hljs html"><code>&#x3C;section class=&#x22;gallery&#x22;&#x3E;
@@ -153,6 +227,13 @@
   &#x3C;div&#x3E;item&#x3C;/div&#x3E;
 &#x3C;/section&#x3E;
 </code></pre>
+      </div>
+
+      <div class="step">
+        <h2>Remember why CSS was invented</h2>
+        <p>
+          To separate markup from style. Let's do that.
+        </p>
       </div>
 
       <div class="step">
@@ -302,6 +383,13 @@
         <h4>Sidenote</h4>
         <p>
           Literally every single developer I've ever worked with on a project has used Bootstrap and has screwed up the grid markup. And every single designer who has switched from traditional CSS grids to ratio grids has been really happy with the switch.
+        </p>
+      </div>
+
+      <div class="step">
+        <h2>I highly suggest you try out all these grid systems and pick your favorite</h2>
+        <p>
+          Completely replace your CSS grid system with a preprocessor grid system in less than a week and see drastic, amazing changes to your workflow and development time instantly.
         </p>
       </div>
 

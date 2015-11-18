@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=1024">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>PostCSS, Sass, and Your Workflow</title>
+    <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/default.min.css">
+    <link rel="stylesheet" href="../common/css/tomorrow_night_eighties.css">
+    <link href="../common/css/custom.css" rel="stylesheet">
+  </head>
+  <body>
+
+    <div id="impress">
+
+      <div class="step">
+        <h1>PostCSS, Sass, &amp; Your Workflow</h1>
+        <p>
+          Why all my libraries will be written in PostCSS from now on and you should do the same.
+        </p>
+        <p>
+          Cory Simmons - <a href="https://twitter.com/ccccory">@ccccory</a>
+        </p>
+      	<img src="img/cory.jpg" style="width: 200px;">
+      </div>
+
+      <div class="step">
+        <h1>Hi, my name is Cory Simmons</h1>
+        <ul>
+          <li>
+            Written for <a href="https://css-tricks.com/adding-stroke-to-web-text/" target="_blank">CSS Tricks</a>
+          </li>
+          <li>
+            Was an author at <a href="https://tutsplus.com/authors/cory-simmons" target="_blank">TutsPlus</a>
+          </li>
+          <li>
+            Have a book with Packt Publishing on <a href="http://www.amazon.com/Instant-Responsive-Design-Cory-Simmons-ebook/dp/B00FF8OLG6" target="_blank">responsive web design</a>
+          </li>
+          <li>
+            Have won a <a href="http://www.awwwards.com/web-design-awards/jeet-gs-a-grid-system-for-humans" target="_blank">Site of the Day Awwward</a>
+          </li>
+          <li>
+          	Currently work at a pretty large publication maintaining all their frontend code
+          </li>
+          <li>
+          	Have spoken at a <a href="http://lanyrd.com/profile/corysimmons/past/speaking/" target="_blank">few conferences</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <h2>Some projects I've worked on</h2>
+        <ul>
+        	<li>
+        		<a href="http://jeet.gs/" target="_blank">Jeet</a> (2500 Stars)
+        	</li>
+        	<li>
+        		<a href="https://github.com/corysimmons/lost" target="_blank">Lost</a> (1700 Stars)
+        	</li>
+        	<li>
+        		<a href="https://teespring.com/" target="_blank">Teespring</a>
+        		<ul>
+        			<li>CodeIgniter to Rails</li>
+        			<li>Bootstrap 2 (LESS) -> Bootstrap 3 -> Bootstrap 3 (Sass) -> Foundation -> Custom</li>
+        			<li>10's of 1000's of lines of code</li>
+        			<li>10 million monthly site visitors</li>
+        		</ul>
+        	</li>
+        	<li>
+        		<a href="https://github.com/corysimmons/typographic" target="_blank">Typographic</a> (500 Stars)
+        	</li>
+        	<li>
+        		<a href="https://github.com/corysimmons/boy" target="_blank">Boy</a> (400 Stars)
+        	</li>
+        	<li>
+        		A ton of freelance sites
+        	</li>
+        	<li>
+        		Large publisher (couple million hits monthly)
+        	</li>
+        </ul>
+      </div>
+
+      <div class="step">
+      	<h2>The Story of Lost</h2>
+      	<p>Stylus first</p>
+      	<a href="https://github.com/corysimmons/lost/blob/be255b84554457d0cf327465abca47ca1c28bd8d/lost.styl" target="_blank">
+	      	<img src="img/lost-stylus.jpg" style="width: 600px;">
+      	</a>
+      </div>
+
+      <div class="step">
+      	<h2>Port to SCSS</h2>
+      	<p>
+      		Just so it would appeal to more people. But sometimes these conversions can be a lot of work. Not only is there a fundamental difference in syntax, but a lot of the functionality of the preprocessors is different.
+      	</p>
+      	<a href="https://github.com/corysimmons/lost/commit/09d1ad8e9cbcf00213cecdcae474c84f840facd9" target="_blank">
+      		<img src="img/lost-scss.jpg" style="width: 500px;">
+      	</a>
+      	<p>
+      		Note: I did this Stylus + SCSS port thing with a few other open source libs I've worked on including <a href="https://github.com/corysimmons/typographic" target="_blank">Typographic</a>.
+      	</p>
+      </div>
+
+      <div class="step">
+      	<h2>Port to LESS</h2>
+      	<p>
+      		<i>Why not make my grid appeal to even more people?</i>
+      	</p>
+      	<p>
+      		This was a huge undertaking. By this point I had already added a few more functions to Lost and wasn't super familar with LESS' complicated (see: <a href="https://github.com/corysimmons/lost/commit/608338845d612b7abd0316a1300602bf51f30496#diff-4902f88ed80635710f7e51ce8b0ba010R253" target="_blank">horrible</a>) syntax.
+      	</p>
+      	<a href="https://github.com/corysimmons/lost/commit/608338845d612b7abd0316a1300602bf51f30496" target="_blank">
+      		<img src="img/lost-less.jpg" style="width: 500px;">
+      	</a>
+      </div>
+
+      <div class="step">
+      	<h2>Problems</h2>
+      	<p>
+      		Maintaining 3 codebases for the same library sucks...
+      	</p>
+      	<ul>
+      		<li>Every time you update anything, you have to update the other codebases</li>
+      		<li>Usually their syntax isn't the same so you have to actually do work</li>
+      		<li>Easy to make mistakes</li>
+      		<li>Easy to forget to document</li>
+      		<li>Lot of work...</li>
+      	</ul>
+      </div>
+
+      <div class="step">
+      	<h2>Documentation</h2>
+      	<p>
+      		Every single little change to the documentation had to be done 2 extra times.
+      	</p>
+      	<a href="https://github.com/corysimmons/lost/commit/b2cc4be1ee2cc37dada7a96b24017368724c2719#diff-04c6e90faac2675aa89e2176d2eec7d8L65" target="_blank">
+	      	<img src="img/lost-doc-differences.jpg" style="width: 600px;">
+      	</a>
+      	<p>
+      		My README was <a href="https://github.com/corysimmons/lost/blob/b2cc4be1ee2cc37dada7a96b24017368724c2719/README.md" target="_blank">gargantuan</a>...
+      	</p>
+      </div>
+
+      <div class="step">
+      	<h2>Maintaining 3 codebases</h2>
+      	<p>
+      		Every... single... little... change...
+      	</p>
+      	<a href="https://github.com/corysimmons/lost/commit/87d7e81067833cda7cd35e8bf34593d7bec2cacb" target="_blank">
+      		<img src="img/lost-code-differences.jpg" style="width: 450px;">
+      	</a>
+      	<p>
+      		It became <b>really</b> time consuming maintaining all these codebases.
+      	</p>
+      </div>
+
+      <div class="step">
+      	<h2>Preprocessors are missing a lot of built-in functions</h2>
+      	<p>
+      		<b>This is a huge pain in the butt!</b> Nothing made me more angry while working on Lost...
+      	</p>
+      	<p>
+      		Say you want to make a mixin that does something kinda weird (but useful for frontend stuff) like create a typography mixin that needs to <a href="https://github.com/sass/sass/issues/684" target="_blank">multiply exponents</a> with decimals. Sass can't do this. You need to write some huge/crazy/slllllllow looping function just to accomplish this.
+      	</p>
+      	<p>
+      		In fact, there are countless Sass <a href="https://github.com/at-import/sassy-math" target="_blank">libraries</a> and random <a href="https://gist.github.com/jslegers/dbab91f74a4e603458ac" target="_blank">gists</a> for basic math functionality.
+      	</p>
+      	<p>
+      		Splitting strings is another problem I've ran into.
+      	</p>
+      	<p>
+      		There were a few more I can't remember now, but it seemed like every time I turned around one of the 3 main preprocessors couldn't perform some basic task.
+      	</p>
+      	<p>
+      		The official reason for not including functionality is because they want to keep their preprocessors bloat small. Which is understandable, but it also means it's a weaker tool than a fully fledged language like JavaScript for example.
+      	</p>
+      </div>
+
+      <div class="step">
+      	<h2>Stumbling upon an answer</h2>
+      	<p>
+      		I had heard of ReworkCSS, by God's gift to developers (and the ladies) <a href="http://www.okcupid.com/profile/tjholowaychuk/photos" target="_blank">TJ Huckchuck</a> (<a href="https://github.com/tj" target="_blank">GitHub</a>), and was intrigued as to what it was. I read <a href="http://nicolasgallagher.com/custom-css-preprocessing" target="_blank">some article</a> by frontend guru Nicolas Gallagher (Normalize, Micro Clearfix, SUITCSS) and didn't really understand any of it.
+      	</p>
+      	<p>
+      		The only part that really jumped off the page was some example that seemed to illustrate that "You can make your own CSS properties: values".
+      	</p>
+      	<p>
+					I absolutely fell in love with the idea of having a <code>column: 1/2;</code> declaration.
+      	</p>
+      </div>
+
+      <div class="step">
+      	<h2>Is Rework the only option?</h2>
+      	<p>
+      		I wanted to do this right so I explored my options.
+      	</p>
+      	<p>
+      		At the time of that article's writing, Nicolas was almost exclusively using Rework (and I think they still might use it at Twitter?) so I don't think he mentioned PostCSS. I started looking around at Rework's GitHub activity and Issue tracker to see what the climate was like.
+      	</p>
+      	<p>
+      		Buried within some issue I saw some people suggesting to use PostCSS. Then I saw it again. Then I did some research and discovered PostCSS was better maintained and saw some list of advantages it had on Rework. It also had a few developers going crazy developing plugins for it.
+      	</p>
+      	<p>
+      		Not only that, but PostCSS was developed by the guy who made Autoprefixer (my favorite frontend tool). I was sold.
+      	</p>
+      </div>
+
+      <div class="step">
+      	<h2>PostCSS for Dummies</h2>
+      	<p>
+      		PostCSS is a JavaScript tool that you feed CSS into. It parses the CSS and gives you access to every single rule (<code>.my-class</code>), and every single <code>property: value;</code>. Once you have access to these, you can perform whatever JS functions you want to them and save it as a new CSS file.
+      	</p>
+      	<p>
+      		As a super simple example, you can write a PostCSS plugin that will replace every instance of declaration <code>bgc: white;</code> with <code>background-color: #ffffff;</code>.
+      	</p>
+      	<p>
+      		The downside(?): you use a task runner such a Gulp or Grunt (or any damn thing really, the <a href="https://github.com/postcss/postcss#usage" target="_blank">plugin library</a> for PostCSS is beyond amazing at this point). But if you're working on a big team, or you're an advanced little freelancer, you're probably already using a task runner for a plethora of frontend related tasks so this isn't really a problem.
+      	</p>
+      	<p>
+      		This presentation isn't meant to teach you PostCSS's API. It's pretty complicated and you have to be pretty decent at JavaScript. But PostCSS has a very active <a href="https://gitter.im/postcss/postcss" target="_blank">Gitter.im</a> channel and a lot of <a href="https://github.com/postcss/postcss#how-to-develop-for-postcss" target="_blank">markdown documentation</a>.
+      	</p>
+      	<p>
+      		The community behind PostCSS is absolutely amazing. They will hold your hand every step of the way.
+      	</p>
+      </div>
+
+      <div class="step">
+      	<h2>Using Sass with Gulp</h2>
+      	<p>
+      		To start with, put a gulpfile.js and a package.json in the root of your project. Put <code>{}</code> in your package.json and save it. The Gulpfile is where you put JS related to running tasks, the package.json is where you store all the npm packages that go along with this particular project.
+      	</p>
+      	<p>
+      		Run <code>npm install --save-dev gulp gulp-sass</code>. This will install some npm packages to node_modules and update your package.json. Once your team has a package.json to pass around, you'll only ever need to run <code>npm install</code> and it'll read/install everything in package.json.
+      	</p>
+      </div>
+
+      <div class="step">
+      	<h2>Sassy Gulpfile</h2>
+      	<p>
+      		Now add the following to your gulpfile.js:
+      	</p>
+<pre class="hljs js"><code>var gulp = require('gulp'),
+    sass = require('gulp-sass');
+
+gulp.task('sass', function() {
+  return gulp.src('src/css/**/*.*')
+    .pipe(sass())
+    .pipe(gulp.dest('dist/css/'));
+});
+
+gulp.watch('src/**/*.*', ['sass']);
+
+gulp.task('default', ['sass']);
+</code></pre>
+      </div>
+
+      <div class="step">
+      	<h2>Run it</h2>
+      	<p>
+      		Run <code>gulp</code> through your terminal. It will parse all your src Sass files and convert them to CSS in your dist folder.
+      	</p>
+      </div>
+
+      <div class="step">
+      	<h2>Adding a PostCSS plugin</h2>
+      	<p>
+      		We'll use my grid system Lost because it's pretty friggin' sweet. #humblebrag
+      	</p>
+      	<p>
+      		Run <code>npm install --save-dev gulp-postcss lost</code>.
+      	</p>
+      </div>
+
+      <div class="step">
+      	<h2>Updating your gulpfile</h2>
+<pre class="hljs js"><code>var gulp = require('gulp'),
+    sass = require('gulp-sass'),
+    postcss = require('gulp-postcss'),
+    lost = require('lost');
+
+gulp.task('sass', function() {
+  return gulp.src('src/css/**/*.*')
+    .pipe(sass())
+    .pipe(postcss([
+      lost()
+    ]))
+    .pipe(gulp.dest('dist/css/'));
+});
+
+gulp.watch('src/**/*.*', ['sass']);
+
+gulp.task('default', ['sass']);
+</code></pre>
+      </div>
+
+			<div class="step">
+				<h2>Test it out</h2>
+				<p>
+					Add <code>lost-column: 1/2;</code> to some rule.
+				</p>
+			</div>
+
+			<div class="step">
+				<h2>Why Include Sass?</h2>
+				<ul>
+					<li>
+						PostCSS has a <a href="http://postcss.parts/" target="_blank">highly modular ecosystem</a> of plugins that let it do stuff like create mixins and use CSS variables, which a lot of people like (modular code is almost always better). But personally, it's a pain in the butt having to import each of them. I also like Sass' syntax for these things.
+					</li>
+					<li>
+						Sass has nicer syntax, but this is actually <a href="https://github.com/postcss/postcss/issues/495" target="_blank">being worked on</a>, and it will be pretty sweet (indentation based syntax ftw!!!).
+					</li>
+					<li>
+						A lot of projects already require you to use Sass (anything with Bootstrap, Bourbon, Foundation, etc.) so why go through the trouble of piecing together the PostCSS plugins that simply replicate what Sass is doing when you have to use Sass anyway?
+					</li>
+					<li>
+						Tons of nice third party libs like: <a href="https://github.com/modularscale/modularscale-sass" target="_blank">Modular Scale</a>, <a href="http://bitters.bourbon.io/" target="_blank">Bitters</a>, <a href="http://jaredhardy.com/sassy-buttons/" target="_blank">Sassy Buttons</a>, etc.
+					</li>
+				</ul>
+			</div>
+
+			<div class="step">
+				<h2>Build Your Open Source Libraries in PostCSS</h2>
+				<p>
+					If you take nothing else from this presentation, take this: a PostCSS library will work in LESS, Stylus, Sass, SCSS, vanilla CSS, and any other preprocessor that ever comes out.
+				</p>
+				<ul>
+					<li>
+						Super powerful since it exposes all JS' built in functionality instead of just a small selection of hand-picked ones
+					</li>
+					<li>
+						<b>Huge</b> audience of potential users
+					</li>
+					<li>
+						You're not excluding people from using your project just because they like a different preprocessor than you (I've been on the receiving end of that and it sucks)
+					</li>
+					<li>
+						If someone ever decides to switch preprocessors it won't be a problem bringing your project along with them
+					</li>
+					<li>
+						One set of documentation
+					</li>
+					<li>
+						One codebase to rule them all!
+					</li>
+				</ul>
+				<p style="text-align: center;">
+					<img src="img/the-ring.jpg" style="width: 200px;">
+				</p>
+			</div>
+
+			<div class="step">
+				<h2>PostCSS Resources</h2>
+				<ul>
+					<li>
+						<a href="https://gitter.im/postcss/postcss" target="_blank">Gitter</a>
+					</li>
+					<li>
+						<a href="https://github.com/postcss/postcss#how-to-develop-for-postcss" target="_blank">Documentation</a>
+					</li>
+					<li>
+						<a href="http://postcss.parts/" target="_blank">Huge catalog of PostCSS plugins</a>
+					</li>
+					<li>
+						<a href="https://webdesign.tutsplus.com/series/postcss-deep-dive--cms-889" target="_blank">"PostCSS Deep Dive"</a> by one of my favorite authors, Kezz Bracey
+					</li>
+					<li>
+						<a href="https://www.youtube.com/watch?v=fMg5HlHmGLY&list=PLLnpHn493BHFvjZzyYrQP0RTsG-Al7j9m" target="_blank">LevelUpTuts video tutorials</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="step">
+				<h2>Is PostCSS here to stay?</h2>
+				<p>
+					Yes. Its creator, <a href="https://twitter.com/andreysitnik" target="_blank">Andrey Sitnik</a>, is too smart and too in love with this project for it not to be a huge success. He seems to work tirelessly making it better, adding more plugins, and marketing it.
+				</p>
+			</div>
+
+			<div class="step">
+				<p>
+					"Oh, btw—Bootstrap 4 will be in SCSS. And if you care, v5 will likely be in PostCSS because holy crap that sounds cool."
+				</p>
+				<p>
+					&mdash; <a href="https://twitter.com/mdo/status/591364406816079873" target="_blank">Mark Otto</a> - Developer of Bootstrap
+				</p>
+			</div>
+
+			<div class="step">
+				<h2>Lost Resources</h2>
+				<p>
+					Shameless plug time!
+				</p>
+				<ul>
+					<li>
+						<a href="https://github.com/corysimmons/lost" target="_blank">Lost on GitHub</a> (drop me a Star please!)
+					</li>
+					<li>
+						<a href="https://gitter.im/corysimmons/lost" target="_blank">Gitter</a>
+					</li>
+					<li>
+						<a href="https://www.youtube.com/watch?v=e3J4wZWlQUk&list=PLLnpHn493BHFvjZzyYrQP0RTsG-Al7j9m&index=9" target="_blank">LevelUpTuts video tutorials</a>
+					</li>
+					<li>
+						<a href="https://laracasts.com/series/modern-css-workflow/episodes/2" target="_blank">Laracasts</a> - Jeffrey Way (my favorite teacher of all-time) Sidenote: Laracasts.com is built with Lost.
+					</li>
+				</ul>
+			</div>
+
+			<div class="step">
+				<div style="text-align: center;">
+					<h1>Thanks</h1>
+					<p>
+						You can find these slides at <a href="https://github.com/corysimmons/presentations" target="_blank">https://github.com/corysimmons/presentations</a>
+					</p>
+					<img src="img/derp.jpg" style="width: 300px;">
+				</div>
+			</div>
+
+    </div>
+
+    <script src="../common/bower_components/jquery/jquery.min.js"></script>
+    <script src="../common/bower_components/impress.js/js/impress.js"></script>
+    <script>
+      $(function() {
+        var y = 2000;
+        $('.step').each(function(i) {
+          $(this).attr('data-y', y);
+          y += 2000;
+        });
+        impress().init();
+      });
+    </script>
+    <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="../common/js/custom.js"></script>
+
+  </body>
+</html>
